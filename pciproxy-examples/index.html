@@ -66,7 +66,7 @@
     var secureFields = new SecureFields();
 
     secureFields.init(
-      '230124151521143372',
+      '230124154743543385',
       {
         cardNumber: {
            placeholderElementId: 'card-number',
@@ -132,14 +132,18 @@
     });
 
     document.getElementById('form-submit').addEventListener('click', function () {
-      secureFields.submit();
+      secureFields.submit({
+        expm: 06,
+        expy: 25
+      });
     });
 
     secureFields.on('success', function (data) {
+      console.log(data);
       if (data.redirect) {
-        // var result = document.getElementById('form-result');
-        // result.innerText = 'Redirecting to...: ' + data.redirect + ')';
-        // result.style.display = 'block';
+        var result = document.getElementById('form-result');
+        result.innerText = 'Redirecting to...: ' + data.redirect + ')';
+        result.style.display = 'block';
         window.location.href = data.redirect
       }
     });
