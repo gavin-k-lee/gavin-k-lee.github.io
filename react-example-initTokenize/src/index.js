@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import SecureFields from './SecureFields'
 
 ReactDOM.render(<SecureFields config={{
-  merchantID: '1100007006',
+  merchantID: '1110003836',
   fields:{
     cardNumber: {
       placeholderElementId: 'card-number',

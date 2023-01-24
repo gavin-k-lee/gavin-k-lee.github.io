@@ -23,7 +23,7 @@ export class SecureFieldsService {
   initSecureFields() {
     this.secureFields = new (window as any).SecureFields();
     this.secureFields.initTokenize(
-      '1100007006', // Merchant Id
+      '1110003836', // Merchant Id
       {
         cardNumber: {
           placeholderElementId: 'card-number',
