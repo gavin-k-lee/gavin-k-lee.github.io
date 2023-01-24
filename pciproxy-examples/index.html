@@ -20,7 +20,7 @@
     <div style="max-width: 400px">
       <!-- Card Number markup -->
       <div id="card-number-container" class="secure-field secure-field__input secure-field__base secure-field__has-actions secure-field__has-card-icon">
-        <label for="card-number">Card Number</label>
+        <label for="card-number">(3DS) Card Number</label>
         <div class="secure-field--input-container" style="height: 40px">
           <div class="secure-field--input" id="card-number"></div>
           <div class="secure-field--actions">
@@ -65,8 +65,8 @@
   <script>
     var secureFields = new SecureFields();
 
-    secureFields.initTokenize(
-      '1100007006',
+    secureFields.init(
+      '230124151521143372',
       {
         cardNumber: {
            placeholderElementId: 'card-number',
@@ -136,10 +136,11 @@
     });
 
     secureFields.on('success', function (data) {
-      if (data.transactionId) {
-        var result = document.getElementById('form-result');
-        result.innerText = 'Data submitted successfully (transactionId: ' + data.transactionId + ')';
-        result.style.display = 'block';
+      if (data.redirect) {
+        // var result = document.getElementById('form-result');
+        // result.innerText = 'Redirecting to...: ' + data.redirect + ')';
+        // result.style.display = 'block';
+        window.location.href = data.redirect
       }
     });
   </script>
